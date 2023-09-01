@@ -46,3 +46,9 @@ def main():
     """
     def valid_input(number):
         return 1 <= number <= BOARD_SIZE
+
+    """
+    Initialize the game state by calling the 'initialize_game()' function.
+    This function sets up the game board, places ships, and defines the maximum ammo.
+    """
+    game_board, ships, ammo = initialize_game()
