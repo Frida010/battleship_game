@@ -92,5 +92,17 @@ def main():
             print("\nYou have alredy fire that place!\n")
             continue
 
+        """
+        Initialize a boolean variable hit_ship to track whether the users shot hits a ship.
+        Iterate through each ship's position in the ships list.
+        Check if the users shot matches the position of a ship.
+        If a match is found, set hit_ship to True and exit the loop.
+        """
+        hit_ship = False
+        for ship_row, ship_column in ships:
+            if (row, column) == (ship_row, ship_column):
+                hit_ship = True
+                break
+
 
 main()
