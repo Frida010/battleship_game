@@ -104,5 +104,26 @@ def main():
                 hit_ship = True
                 break
 
+        """
+        Checks if the users shot hit a ship, if successful hit the user gets a message and rewared a new ammo. 
+        Update the game board to mark the hit cell with the 'HIT' constant and decrement the count of remaining ships as one ship has been hit.
+        """
+        if hit_ship:
+            print("\nBOOM! You hit a ship! You were rewared a new ammo!\n")
+            game_board[row][column] = HIT
+            NUM_SHIPS -= 1
+
+            """
+            Checks if all ships have been destroyed, if thats the case congratulate the user. 
+            Check if usedr wants to play again, if not print Goodbye. 
+            If user choose to play again, reset game state. 
+            """
+            if NUM_SHIPS == 0:
+                print("Congratulations! You won!")
+                if not play_again():
+                    print("Goodbye!")
+                    break
+                else:
+                    game_board, ships, ammo = initialize_game()
 
 main()
