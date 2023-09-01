@@ -78,6 +78,19 @@ def main():
             print("\nThe number must be between 1 and 5!")
             continue
 
+        """
+        Adjusts the users input from 1-based indexing to 0-based indexing for row and column.
+        """
+        row -= 1
+        column -= 1
+
+        """
+        Checks if the user has already shot at the specified location on the game board.
+        If the location has already been targeted (contains 'MISS' or 'HIT'), inform the player.
+        """
+        if game_board[row][column] in (MISS, HIT):
+            print("\nYou have alredy fire that place!\n")
+            continue
 
 
 main()
