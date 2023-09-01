@@ -60,14 +60,24 @@ def main():
         print_board(game_board)
 
         """
-        Prompt the player to enter row and column numbers for their next move.
+        Prompt the user to enter row and column numbers for their next move.
+        Prints error message if user write other then numbers.
         """
         try:
-            row = int(input("Enter a row number between 1 and 5 ->\n")
+            row = int(input("Enter a row number between 1 and 5 ->\n"))
             column = int(input("Enter a column number between 1 and 5 ->\n"))
-        except ValueError:
-            # Tells the user to only enter numbers in the input. 
+        except ValueError: 
             print("Only enter numbers!")
             continue
 
+        """
+        Checks if the users input for row and column is within the valid range, 1 and 5.
+        If either row or column is outside valid range, print error message. 
+        """
+        if not valid_input(row) or not valid_input(column):
+            print("\nThe number must be between 1 and 5!")
+            continue
 
+
+
+main()
