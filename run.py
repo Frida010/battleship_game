@@ -141,4 +141,24 @@ def main():
             """
             print(f"Ammo left: {ammo} | Ships left: {NUM_SHIPS}")
 
-main()
+        """
+        Checks if the user has run out of ammo, if ammo is out = game over. 
+        """
+        if ammo <= 0:
+            print("You're out of ammo! Game over.")
+            """
+            Check if the user wants to play again.
+            If the user chooses to play again, start a new game by calling the 'main()' function.
+            If the user chooses not to play again, print "Goodbye!" and exit.
+            """
+            if play_again():
+                main()
+            else:
+                print("Goodbye!")   
+
+"""
+Check if this script is being run as the main program.
+If the script is being run directly, execute the 'main()' function to start the game.
+"""
+if__name__=="__main__":        
+    main()
