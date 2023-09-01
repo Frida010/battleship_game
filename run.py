@@ -126,4 +126,19 @@ def main():
                 else:
                     game_board, ships, ammo = initialize_game()
 
+            """
+            Inform the user that they missed their shot.
+            Update the game board to mark the missed shot with the 'MISS' constant.
+            Decrease users remaining ammunition by 1.
+            """
+            else:
+                print("\nYou missed!\n")
+                game_board[row][column] = MISS
+                ammo -= 1
+
+            """
+            Display the current state of the users resources, remaining ammo and remaining ships.
+            """
+            print(f"Ammo left: {ammo} | Ships left: {NUM_SHIPS}")
+
 main()
