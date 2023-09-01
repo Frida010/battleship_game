@@ -16,14 +16,28 @@ MAX_AMMO = 10
 
 
 """
-Prints out the battleship gameboard. 
+Prints out the 2D grid battleship gameboard. 
 """
 def print_board(board):
     for row in board:
         print(*row)
 
+"""
+Create random coordinates for placing the ships on the game board. 
+"""
 def create_ship():
     return random.randint(0, BOARD_SIZE - 1), random.randint(0, BOARD_SIZE - 1)
+
+"""
+Prompt the player to enter their choice: Y=yes or N=no. 
+"""
+def play_again():
+    """
+    Converts the users input to lowercase for case-insensitivity and
+    checks if lowercase input is equal to y to determine the users choise. 
+    """
+    try_again = input("Want to play again? <Y>es or <N>o ->\n")
+    return try_again.lower() == "y"
 
 def main():
     # Display welcome message to the player
