@@ -52,3 +52,22 @@ def main():
     This function sets up the game board, places ships, and defines the maximum ammo.
     """
     game_board, ships, ammo = initialize_game()
+
+    """
+    Prints game board as long as ammo is grater then 0
+    """
+    while ammo > 0:
+        print_board(game_board)
+
+        """
+        Prompt the player to enter row and column numbers for their next move.
+        """
+        try:
+            row = int(input("Enter a row number between 1 and 5 ->\n")
+            column = int(input("Enter a column number between 1 and 5 ->\n"))
+        except ValueError:
+            # Tells the user to only enter numbers in the input. 
+            print("Only enter numbers!")
+            continue
+
+
