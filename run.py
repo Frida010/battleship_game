@@ -3,7 +3,6 @@ Import random package to be able to create random integers.
 """
 import random
 
-
 """
 Constants for the battleship game
 """
@@ -14,27 +13,26 @@ BOARD_SIZE = 5
 NUM_SHIPS = 3
 MAX_AMMO = 10
 
-
 """
-Prints out the 2D grid battleship gameboard. 
+Prints out the 2D grid battleship gameboard.
 """
 def print_board(board):
     for row in board:
         print(*row)
 
 """
-Create random coordinates for placing the ships on the game board. 
+Create random coordinates for placing the ships on the game board.
 """
 def create_ship():
     return random.randint(0, BOARD_SIZE - 1), random.randint(0, BOARD_SIZE - 1)
 
 """
-Prompt the player to enter their choice: Y=yes or N=no. 
+Prompt the player to enter their choice: Y=yes or N=no.
 """
 def play_again():
     """
     Converts the users input to lowercase for case-insensitivity and
-    checks if lowercase input is equal to y to determine the users choise. 
+    checks if lowercase input is equal to y to determine the users choise.
     """
     try_again = input("Want to play again? <Y>es or <N>o ->\n")
     return try_again.lower() == "y"
@@ -80,7 +78,7 @@ def main():
         try:
             row = int(input("Enter a row number between 1 and 5 ->\n"))
             column = int(input("Enter a column number between 1 and 5 ->\n"))
-        except ValueError: 
+        except ValueError:
             print("Only enter numbers!")
             continue
 
@@ -128,9 +126,9 @@ def main():
             NUM_SHIPS -= 1
 
             """
-            Checks if all ships have been destroyed, if thats the case congratulate the user. 
-            Check if usedr wants to play again, if not print Goodbye. 
-            If user choose to play again, reset game state. 
+            Checks if all ships have been destroyed, if thats the case congratulate the user.
+            Check if usedr wants to play again, if not print Goodbye.
+            If user choose to play again, reset game state.
             """
             if NUM_SHIPS == 0:
                 print("Congratulations! You won!")
@@ -168,11 +166,11 @@ def main():
             if play_again():
                 main()
             else:
-                print("Goodbye!")   
+                print("Goodbye!")
 
 """
 Check if this script is being run as the main program.
 If the script is being run directly, execute the 'main()' function to start the game.
 """
-if__name__=="__main__":        
+if __name__ == "__main__" :
     main()
