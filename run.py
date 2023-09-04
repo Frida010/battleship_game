@@ -40,6 +40,7 @@ def play_again():
         else:
             print("Invalid input. Please enter 'Y' or 'N'.")
 
+# Main game logic
 def main():
     # Display welcome message to the player
     print("""Welcome to the battleship game!\nYour task is to find and destroy all the ships on the map.""")
@@ -69,18 +70,13 @@ def main():
     game_board, ships, ammo = initialize_game()
     remaining_ships = NUM_SHIPS
 
-    """
-    Prints game board as long as ammo is grater then 0
-    """
+  
+    # Main game loop
     while ammo > 0 and remaining_ships > 0:
         print_board(game_board)
 
         """
         Prompt the user to enter row and column numbers for their next move.
-        Prints error message if user write other then numbers.
-        Checks if the users input for row and column is within the valid range, 1 and 5.
-        If either row or column is outside valid range, print error message.
-        Adjusts the users input from 1-based indexing to 0-based indexing for row and column.
         """
         try:
             row = int(input("Enter a row number between 1 and 5 ->\n"))
@@ -93,27 +89,27 @@ def main():
             row -= 1
             column -= 1
             
-            #Checks if the user has already shot at the specified location on the game board.
+            # Checks if the user has already shot at the specified location on the game board.
             if game_board[row][column] in (MISS, HIT):
                 print("\nYou have already fired that place!\n")
                 continue
 
             
-            #Initialize a boolean variable hit_ship to track whether the users shot hits a ship.
+            # Initialize a boolean variable hit_ship to track whether the users shot hits a ship.
             hit_ship = False
             for ship_row, ship_column in ships:
                 if (row, column) == (ship_row, ship_column):
                     hit_ship = True
                     break
 
-            #Checks if the users shot hit a ship.
+            # Checks if the users shot hit a ship.
             if hit_ship:
                 print("\nBOOM! You hit a ship! You were rewared a new ammo!\n")
                 game_board[row][column] = HIT
                 remaining_ships -= 1
 
             
-                #Checks if all ships have been destroyed.
+                # Checks if all ships have been destroyed.
                 if remaining_ships == 0:
                     print("Congratulations! You won!")
                     if not play_again():
@@ -122,9 +118,11 @@ def main():
                     else:
                         game_board, ships, ammo = initialize_game()
                 else:  
-                #Inform the user that they missed their shot.
-                #Update the game board to mark the missed shot with the 'MISS' constant.
-                #Decrease users remaining ammunition by 1.
+                """
+                Inform the user that they missed their shot.
+                Update the game board to mark the missed shot with the 'MISS' constant.
+                Decrease users remaining ammunition by 1.
+                """
                     print("\nYou missed!\n")
                     game_board[row][column] = MISS
                     ammo -= 1
