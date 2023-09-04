@@ -1,31 +1,31 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Battleship Game
 
-Welcome USER_NAME,
+The battleship game is a Python terminal game, which runs in the Code Institute mock terminal on Heroku.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+The user will be able to try to beat the computer by finding the computer's three battleships. The user has ten attempts or as called in the game, ammo. 
 
-## Reminders
+The user is rewarded with an extra ammo for each correct hit by the computer's battleship. Each battleship occupies one square on the board. 
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+## How to play
+The battleship game is based on a classic strategy pen-and-paper game which dates back from World War I. You can read more about it on [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game))
 
-## Creating the Heroku app
+In this version the player gets a board and is supposed to guess a row and column number between 1 and 5 to hit the computer's battleship. 
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+Guesses are marked on the board whit an - and hits are indicated by an X. 
 
-1. `heroku/python`
-2. `heroku/nodejs`
+The user winns when all battleships is detected before all the ammo is out.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## Features
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## Data model
 
-Connect your GitHub repository and deploy as normal.
+## Testing
 
-## Constraints
+### Bugs
+#### Solved bugs
+### Remaining Bugs
+### Validator Testing
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## Deployment
 
------
-Happy coding!
+## Credits
