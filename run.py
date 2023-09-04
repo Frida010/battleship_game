@@ -1,5 +1,5 @@
 """
-Import random package to be able to create random integers. 
+Import random package to create random integers. 
 """
 import random
 
@@ -30,12 +30,15 @@ def create_ship():
 Prompt the player to enter their choice: Y=yes or N=no.
 """
 def play_again():
-    """
-    Converts the users input to lowercase for case-insensitivity and
-    checks if lowercase input is equal to y to determine the users choise.
-    """
-    try_again = input("Want to play again? <Y>es or <N>o ->\n")
-    return try_again.lower() == "y"
+    while True:
+        try_again = input("Want to play again? <Y>es or <N>o ->\n")
+        try_again = try_again.lower()
+        if try_again == "y":
+            return True
+        elif try_again == "n":
+            return False
+        else:
+            print("Invalid input. Please enter 'Y' or 'N'.")
 
 def main():
     # Display welcome message to the player
@@ -50,7 +53,7 @@ def main():
     Initialize the game board whit empty cells
     """
     def initialize_game():
-        return [[EMPTY]*BOARD_SIZE for _ in range (BOARD_SIZE)], [create_ship() for _ in range(NUM_SHIPS)], MAX_AMMO
+        return [[EMPTY] * BOARD_SIZE for _ in range (BOARD_SIZE)], [create_ship() for _ in range(NUM_SHIPS)], MAX_AMMO
 
     """
     Check if the provided "number" is within the valid input range, which is between 1 and BOARD_SIZE (inclusive).
@@ -64,11 +67,12 @@ def main():
     This function sets up the game board, places ships, and defines the maximum ammo.
     """
     game_board, ships, ammo = initialize_game()
+    remaining_ships = NUM_SHIPS
 
     """
     Prints game board as long as ammo is grater then 0
     """
-    while ammo > 0:
+    while ammo > 0 and remaining_ships > 0:
         print_board(game_board)
 
         """
@@ -101,7 +105,7 @@ def main():
         If the location has already been targeted (contains 'MISS' or 'HIT'), inform the player.
         """
         if game_board[row][column] in (MISS, HIT):
-            print("\nYou have alredy fire that place!\n")
+            print("\nYou have already fired that place!\n")
             continue
 
         """
@@ -123,27 +127,24 @@ def main():
         if hit_ship:
             print("\nBOOM! You hit a ship! You were rewared a new ammo!\n")
             game_board[row][column] = HIT
-            NUM_SHIPS -= 1
+            remaining_ships -= 1
 
             """
             Checks if all ships have been destroyed, if thats the case congratulate the user.
             Check if usedr wants to play again, if not print Goodbye.
             If user choose to play again, reset game state.
             """
-            if NUM_SHIPS == 0:
+            if remaining_ships == 0:
                 print("Congratulations! You won!")
                 if not play_again():
                     print("Goodbye!")
                     break
                 else:
                     game_board, ships, ammo = initialize_game()
-
-            """
-            Inform the user that they missed their shot.
-            Update the game board to mark the missed shot with the 'MISS' constant.
-            Decrease users remaining ammunition by 1.
-            """
-            else:
+            else:  
+            #Inform the user that they missed their shot.
+            #Update the game board to mark the missed shot with the 'MISS' constant.
+            #Decrease users remaining ammunition by 1.
                 print("\nYou missed!\n")
                 game_board[row][column] = MISS
                 ammo -= 1
