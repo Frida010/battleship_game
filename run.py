@@ -78,96 +78,79 @@ def main():
         """
         Prompt the user to enter row and column numbers for their next move.
         Prints error message if user write other then numbers.
+        Checks if the users input for row and column is within the valid range, 1 and 5.
+        If either row or column is outside valid range, print error message.
+        Adjusts the users input from 1-based indexing to 0-based indexing for row and column.
         """
         try:
             row = int(input("Enter a row number between 1 and 5 ->\n"))
             column = int(input("Enter a column number between 1 and 5 ->\n"))
-        except ValueError:
-            print("Only enter numbers!")
-            continue
 
-        """
-        Checks if the users input for row and column is within the valid range, 1 and 5.
-        If either row or column is outside valid range, print error message. 
-        """
-        if not valid_input(row) or not valid_input(column):
-            print("\nThe number must be between 1 and 5!")
-            continue
+            if not valid_input(row) or not valid_input(column):
+                print("\nThe number must be between 1 and 5!")
+                continue
+        
+            row -= 1
+            column -= 1
+            
+            #Checks if the user has already shot at the specified location on the game board.
+            if game_board[row][column] in (MISS, HIT):
+                print("\nYou have already fired that place!\n")
+                continue
 
-        """
-        Adjusts the users input from 1-based indexing to 0-based indexing for row and column.
-        """
-        row -= 1
-        column -= 1
-
-        """
-        Checks if the user has already shot at the specified location on the game board.
-        If the location has already been targeted (contains 'MISS' or 'HIT'), inform the player.
-        """
-        if game_board[row][column] in (MISS, HIT):
-            print("\nYou have already fired that place!\n")
-            continue
-
-        """
-        Initialize a boolean variable hit_ship to track whether the users shot hits a ship.
-        Iterate through each ship's position in the ships list.
-        Check if the users shot matches the position of a ship.
-        If a match is found, set hit_ship to True and exit the loop.
-        """
-        hit_ship = False
-        for ship_row, ship_column in ships:
-            if (row, column) == (ship_row, ship_column):
-                hit_ship = True
-                break
-
-        """
-        Checks if the users shot hit a ship, if successful hit the user gets a message and rewared a new ammo. 
-        Update the game board to mark the hit cell with the 'HIT' constant and decrement the count of remaining ships as one ship has been hit.
-        """
-        if hit_ship:
-            print("\nBOOM! You hit a ship! You were rewared a new ammo!\n")
-            game_board[row][column] = HIT
-            remaining_ships -= 1
-
-            """
-            Checks if all ships have been destroyed, if thats the case congratulate the user.
-            Check if usedr wants to play again, if not print Goodbye.
-            If user choose to play again, reset game state.
-            """
-            if remaining_ships == 0:
-                print("Congratulations! You won!")
-                if not play_again():
-                    print("Goodbye!")
+            
+            #Initialize a boolean variable hit_ship to track whether the users shot hits a ship.
+            hit_ship = False
+            for ship_row, ship_column in ships:
+                if (row, column) == (ship_row, ship_column):
+                    hit_ship = True
                     break
-                else:
-                    game_board, ships, ammo = initialize_game()
-            else:  
-            #Inform the user that they missed their shot.
-            #Update the game board to mark the missed shot with the 'MISS' constant.
-            #Decrease users remaining ammunition by 1.
+
+            #Checks if the users shot hit a ship.
+            if hit_ship:
+                print("\nBOOM! You hit a ship! You were rewared a new ammo!\n")
+                game_board[row][column] = HIT
+                remaining_ships -= 1
+
+            
+                #Checks if all ships have been destroyed.
+                if remaining_ships == 0:
+                    print("Congratulations! You won!")
+                    if not play_again():
+                        print("Goodbye!")
+                        break
+                    else:
+                        game_board, ships, ammo = initialize_game()
+                else:  
+                #Inform the user that they missed their shot.
+                #Update the game board to mark the missed shot with the 'MISS' constant.
+                #Decrease users remaining ammunition by 1.
+                    print("\nYou missed!\n")
+                    game_board[row][column] = MISS
+                    ammo -= 1
+            
+                #Display the current state of the users resources, remaining ammo and remaining ships.
+                print(f"Ammo left: {ammo} | Ships left: {NUM_SHIPS}")
+
+            else:
                 print("\nYou missed!\n")
                 game_board[row][column] = MISS
                 ammo -= 1
 
-            """
-            Display the current state of the users resources, remaining ammo and remaining ships.
-            """
-            print(f"Ammo left: {ammo} | Ships left: {NUM_SHIPS}")
+                print(f"Ammo left: {ammo} | Ships left: {NUM_SHIPS}")
 
-        """
-        Checks if the user has run out of ammo, if ammo is out = game over. 
-        """
-        if ammo <= 0:
-            print("You're out of ammo! Game over.")
-            """
-            Check if the user wants to play again.
-            If the user chooses to play again, start a new game by calling the 'main()' function.
-            If the user chooses not to play again, print "Goodbye!" and exit.
-            """
-            if play_again():
-                main()
-            else:
-                print("Goodbye!")
+        except ValueError:
+            print("\nOnly enter numbers!\n")
+
+    #Checks if the user has run out of ammo, if ammo is out = game over. 
+    if ammo <= 0:
+        print("You're out of ammo! Game over.")
+        
+        #Check if the user wants to play again.
+        if play_again():
+            main()
+        else:
+            print("Goodbye!")
 
 """
 Check if this script is being run as the main program.
