@@ -40,6 +40,11 @@ def play_again():
         else:
             print("Invalid input. Please enter 'Y' or 'N'.")
 
+def print_ship_positions(ships):
+    print("Ship positions:")
+    for i, (row, col) in enumerate(ships):
+        print(f"Ship {i + 1}: Row {row + 1}, Column {col + 1}")
+
 # Main game logic
 def main():
     # Display welcome message to the player
@@ -68,9 +73,15 @@ def main():
     game_board, ships, ammo = initialize_game()
     remaining_ships = NUM_SHIPS
 
+    print_ship_positions(ships)
+
   
     # Main game loop
     while ammo > 0 and remaining_ships > 0:
+        print_board(game_board)
+
+         # Inside the loop, print the game board to see how it's being updated
+        print("Updated game board:")
         print_board(game_board)
 
         """
@@ -103,8 +114,9 @@ def main():
             # Checks if the users shot hit a ship.
             if hit_ship:
                 print("\nBOOM! You hit a ship! You were rewared a new ammo!:D\n")
-                game_board[row][column] = HIT
+                game_board[row][column] = "B"
                 remaining_ships -= 1
+                ammo += 1
 
             
                 # Checks if all ships have been destroyed.
@@ -113,8 +125,7 @@ def main():
                     if not play_again():
                         print("Goodbye!")
                         break
-                    else:
-                        game_board, ships, ammo = initialize_game()
+
                 else:  
                 #Inform the user that they missed their shot.
                 #Update the game board to mark the missed shot with the 'MISS' constant.
@@ -124,13 +135,6 @@ def main():
                     ammo -= 1
             
                 #Display the current state of the users resources, remaining ammo and remaining ships.
-                print(f"Ammo left: {ammo} | Ships left: {NUM_SHIPS}\n")
-
-            else:
-                print("\nYou missed!:(\n")
-                game_board[row][column] = MISS
-                ammo -= 1
-
                 print(f"Ammo left: {ammo} | Ships left: {NUM_SHIPS}\n")
 
         except ValueError:
