@@ -46,8 +46,7 @@ def main():
     print("""Welcome to the battleship game!\nYour task is to find and destroy all the ships on the map.""")
 
     # Provide game instructions
-    print("""\nInstructions:\n\nYou have 10 ammo and there are 3 hidden ships on the map.
-    In order to hit them, you have to enter the numbers for that location.
+    print("""\nInstructions:\n\nYou have 10 ammo and there are 3 hidden ships on the map.\nIn order to hit them, you have to enter the numbers for that location.
     For example:\nThe first row and first column, you write 1 and 1\nGood luck!\n""")
 
     """
