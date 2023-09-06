@@ -40,15 +40,10 @@ def play_again():
         else:
             print("Invalid input. Please enter 'Y' or 'N'.")
 
-def print_ship_positions(ships):
-    print("Ship positions:")
-    for i, (row, col) in enumerate(ships):
-        print(f"Ship {i + 1}: Row {row + 1}, Column {col + 1}")
-
 # Main game logic
 def main():
     # Display welcome message to the player
-    print("""Welcome to the battleship game!\nYour task is to find and destroy all the ships on the map.""")
+    print("Welcome to the battleship game!\nYour task is to find and destroy all the ships on the map.")
 
     # Provide game instructions
     print("""\nInstructions:\n\nYou have 10 ammo and there are 3 hidden ships on the map.\nIn order to hit them, you have to enter the numbers for that location.\nFor example:\nThe first row and first column, you write 1 and 1\nGood luck!;D\n""")
@@ -73,17 +68,9 @@ def main():
     game_board, ships, ammo = initialize_game()
     remaining_ships = NUM_SHIPS
 
-    print_ship_positions(ships)
-
-  
     # Main game loop
     while ammo > 0 and remaining_ships > 0:
         print_board(game_board)
-
-         # Inside the loop, print the game board to see how it's being updated
-        print("Updated game board:")
-        print_board(game_board)
-
         """
         Prompt the user to enter row and column numbers for their next move.
         """
@@ -114,10 +101,9 @@ def main():
             # Checks if the users shot hit a ship.
             if hit_ship:
                 print("\nBOOM! You hit a ship! You were rewared a new ammo!:D\n")
-                game_board[row][column] = "B"
+                game_board[row][column] = HIT
                 remaining_ships -= 1
                 ammo += 1
-
             
                 # Checks if all ships have been destroyed.
                 if remaining_ships == 0:
@@ -126,13 +112,11 @@ def main():
                         print("Goodbye!")
                         break
 
-                else:  
-                #Inform the user that they missed their shot.
-                #Update the game board to mark the missed shot with the 'MISS' constant.
-                #Decrease users remaining ammunition by 1.
-                    print("\nYou missed!:(\n")
-                    game_board[row][column] = MISS
-                    ammo -= 1
+            else:  
+            #Inform the user that they missed their shot.
+                print("\nYou missed!:(\n")
+                game_board[row][column] = MISS
+                ammo -= 1
             
                 #Display the current state of the users resources, remaining ammo and remaining ships.
                 print(f"Ammo left: {ammo} | Ships left: {NUM_SHIPS}\n")
@@ -154,5 +138,5 @@ def main():
 Check if this script is being run as the main program.
 If the script is being run directly, execute the 'main()' function to start the game.
 """
-if __name__ == "__main__" :
+if __name__ == "__main__":
     main()
