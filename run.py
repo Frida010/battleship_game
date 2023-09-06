@@ -46,8 +46,7 @@ def main():
     print("""Welcome to the battleship game!\nYour task is to find and destroy all the ships on the map.""")
 
     # Provide game instructions
-    print("""\nInstructions:\n\nYou have 10 ammo and there are 3 hidden ships on the map.\nIn order to hit them, you have to enter the numbers for that location.
-    For example:\nThe first row and first column, you write 1 and 1\nGood luck!;D\n""")
+    print("""\nInstructions:\n\nYou have 10 ammo and there are 3 hidden ships on the map.\nIn order to hit them, you have to enter the numbers for that location.\nFor example:\nThe first row and first column, you write 1 and 1\nGood luck!;D\n""")
 
     """
     Initialize the game board whit empty cells
@@ -78,7 +77,7 @@ def main():
         Prompt the user to enter row and column numbers for their next move.
         """
         try:
-            row = int(input("Enter a row number between 1 and 5 ->\n"))
+            row = int(input("\nEnter a row number between 1 and 5 ->\n"))
             column = int(input("Enter a column number between 1 and 5 ->\n"))
 
             if not valid_input(row) or not valid_input(column):
@@ -125,14 +124,14 @@ def main():
                     ammo -= 1
             
                 #Display the current state of the users resources, remaining ammo and remaining ships.
-                print(f"Ammo left: {ammo} | Ships left: {NUM_SHIPS}")
+                print(f"Ammo left: {ammo} | Ships left: {NUM_SHIPS}\n")
 
             else:
                 print("\nYou missed!:(\n")
                 game_board[row][column] = MISS
                 ammo -= 1
 
-                print(f"Ammo left: {ammo} | Ships left: {NUM_SHIPS}")
+                print(f"Ammo left: {ammo} | Ships left: {NUM_SHIPS}\n")
 
         except ValueError:
             print("\nOnly enter numbers!\n")
