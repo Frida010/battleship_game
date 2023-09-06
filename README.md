@@ -6,6 +6,8 @@ The user will be able to try to beat the computer by finding the computer's thre
 
 The user is rewarded with an extra ammo for each correct hit by the computer's battleship. Each battleship occupies one square on the board. 
 
+![Screenshot of the game on diffrent screen sizes](https://user-images.githubusercontent.com/129947589/265952135-0745c6be-a67e-4e76-ad29-151b1eedcf0f.png)
+
 ## How to play
 The battleship game is based on a classic strategy pen-and-paper game which dates back from World War I. You can read more about it on [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game))
 
@@ -18,6 +20,7 @@ The battleship game is based on a classic strategy pen-and-paper game which date
 4. The game will inform you if your shot hit a ship, missed, or if you have already fired at a location.
 5. Your ammo count will decrease with each shot.
 6. Keep playing until you destroy all the ships or run out of ammo.
+![Screenshot of the game](https://user-images.githubusercontent.com/129947589/265952183-071dea35-0f6c-4d63-9c28-5daca52ea4e3.png)
 
 ### Gameplay
 
