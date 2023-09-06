@@ -47,7 +47,7 @@ def main():
 
     # Provide game instructions
     print("""\nInstructions:\n\nYou have 10 ammo and there are 3 hidden ships on the map.\nIn order to hit them, you have to enter the numbers for that location.
-    For example:\nThe first row and first column, you write 1 and 1\nGood luck!\n""")
+    For example:\nThe first row and first column, you write 1 and 1\nGood luck!;D\n""")
 
     """
     Initialize the game board whit empty cells
@@ -103,14 +103,14 @@ def main():
 
             # Checks if the users shot hit a ship.
             if hit_ship:
-                print("\nBOOM! You hit a ship! You were rewared a new ammo!\n")
+                print("\nBOOM! You hit a ship! You were rewared a new ammo!:D\n")
                 game_board[row][column] = HIT
                 remaining_ships -= 1
 
             
                 # Checks if all ships have been destroyed.
                 if remaining_ships == 0:
-                    print("Congratulations! You won!")
+                    print("Congratulations!!! You won!:D")
                     if not play_again():
                         print("Goodbye!")
                         break
@@ -120,7 +120,7 @@ def main():
                 #Inform the user that they missed their shot.
                 #Update the game board to mark the missed shot with the 'MISS' constant.
                 #Decrease users remaining ammunition by 1.
-                    print("\nYou missed!\n")
+                    print("\nYou missed!:(\n")
                     game_board[row][column] = MISS
                     ammo -= 1
             
@@ -128,7 +128,7 @@ def main():
                 print(f"Ammo left: {ammo} | Ships left: {NUM_SHIPS}")
 
             else:
-                print("\nYou missed!\n")
+                print("\nYou missed!:(\n")
                 game_board[row][column] = MISS
                 ammo -= 1
 
@@ -139,7 +139,7 @@ def main():
 
     #Checks if the user has run out of ammo, if ammo is out = game over. 
     if ammo <= 0:
-        print("You're out of ammo! Game over.")
+        print("You're out of ammo! Game over:(")
         
         #Check if the user wants to play again.
         if play_again():
