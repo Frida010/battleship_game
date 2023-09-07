@@ -68,8 +68,11 @@ def main():
     game_board, ships, ammo = initialize_game()
     remaining_ships = NUM_SHIPS
 
+    # Initialize a variable to keep track of the number of hits and the remaining ammo
+    hits = 0
+
     # Main game loop
-    while ammo > 0 and remaining_ships > 0:
+    while ammo > 0 and hits < NUM_SHIPS:
         print_board(game_board)
         """
         Prompt the user to enter row and column numbers for their next move.
@@ -100,13 +103,15 @@ def main():
 
             # Checks if the users shot hit a ship.
             if hit_ship:
-                print("\nBOOM! You hit a ship! You were rewared a new ammo!:D\n")
+                print("\nBOOM! You hit a ship! You were rewarded with new ammo!:D\n")
                 game_board[row][column] = HIT
-                remaining_ships -= 1
+
+                # Increment hits and give additional ammo when a ship is hit
+                hits += 1
                 ammo += 1
             
                 # Checks if all ships have been destroyed.
-                if remaining_ships == 0:
+                if hits == NUM_SHIPS:
                     print("Congratulations!!! You won!:D")
                     if not play_again():
                         print("Goodbye!")
@@ -118,8 +123,8 @@ def main():
                 game_board[row][column] = MISS
                 ammo -= 1
             
-                #Display the current state of the users resources, remaining ammo and remaining ships.
-                print(f"Ammo left: {ammo} | Ships left: {NUM_SHIPS}\n")
+                #Display the current state of the users resources, remaining ammo, and remaining ships.
+                print(f"Ammo left: {ammo} | Ships left: {NUM_SHIPS - hits}\n")
 
         except ValueError:
             print("\nOnly enter numbers!\n")
