@@ -66,7 +66,6 @@ def main():
     This function sets up the game board, places ships, and defines the maximum ammo.
     """
     game_board, ships, ammo = initialize_game()
-    remaining_ships = NUM_SHIPS
 
     # Initialize a variable to keep track of the number of hits and the remaining ammo
     hits = 0

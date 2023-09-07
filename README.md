@@ -9,7 +9,7 @@ The user is rewarded with an extra ammo for each correct hit by the computer's b
 ![Screenshot of the game on diffrent screen sizes](https://user-images.githubusercontent.com/129947589/265952135-0745c6be-a67e-4e76-ad29-151b1eedcf0f.png)
 
 ## How to play
-The battleship game is based on a classic strategy pen-and-paper game which dates back from World War I. You can read more about it on [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game))
+The battleship game is based on a classic strategy pen-and-paper game which dates back from World War I. You can read more about it on [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game)).
 
 ### Instructions:
 
@@ -56,7 +56,11 @@ I have manually tested this project by doing the following:
 
 ### Remaining Bugs
 
+- No remaining bugs. 
+
 ### Validator Testing
+
+- 
 
 ## Deployment
 This project was deployed using Code Institute's mock terminal for Heroku.
@@ -72,4 +76,6 @@ This project was deployed using Code Institute's mock terminal for Heroku.
 
 - Code Insitutes course material to help whit deployment. 
 - Wikipedia for the details of the Battleship game. 
+- W3school to help whit some of the pyhon code functions etc. 
+- Youtube. 
 
