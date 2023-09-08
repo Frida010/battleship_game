@@ -48,7 +48,7 @@ This Battleship implementation has the following features:
 
 1. **Game board:** An interactive 5x5 board where you can see and shoot ships.
 
-2. **Ammo:** You start with 10 shots, and each hit rewards you with an extra shot.
+2. **Ammo:** You start with 10 shots, and each hit rewards you with an extra ammo.
 
 3. **Ships:** The game has 3 hidden ships that are randomly placed on the board on every restart.
 
@@ -61,6 +61,12 @@ This Battleship implementation has the following features:
 7. **Simple and clear source code:** The source code is structured and commented for easy understanding and possible adaptation.
 
 8. **Interactivity:** The game is played in the terminal and has a simple interactive user interface.
+
+![Screenshot of the game prompting the user to enter numbers between 1 and 5](https://user-images.githubusercontent.com/129947589/266553793-a00e8008-0d05-4ceb-9f00-c83046c14464.png)
+
+![Screenshot of the game prompting the user to enter only numbers](https://user-images.githubusercontent.com/129947589/266555488-5589389b-319f-4faf-a307-0304f65315cb.png)
+
+![Screenshot at the end of the game](https://user-images.githubusercontent.com/129947589/266554848-5925010d-d9f7-4cfc-9beb-c9867e7e2215.png)
 
 ## Data model
 
@@ -104,6 +110,8 @@ I have manually tested this project by doing the following:
 
 - When working on this project I got some problem with the comments in the code and had to reduce them to make the code work as planed. 
 
+- I also had some problem whit wrong indentations that resulted in errors.
+
 ### Remaining Bugs
 
 - No remaining bugs. 
@@ -115,7 +123,7 @@ I have manually tested this project by doing the following:
 ## Deployment
 This project was deployed using Code Institute's mock terminal for Heroku.
 
-- Steps for deployment:
+**Steps for deployment:**
 1. Fork or clone this reposity
 2. Create a new Heroku app
 3. Set the buildbacks to `Python` and `NodeJS` in that order
@@ -124,8 +132,7 @@ This project was deployed using Code Institute's mock terminal for Heroku.
 
 ## Credits
 
-- Code Insitutes course material to help whit deployment. 
-- Wikipedia for the details of the Battleship game. 
-- W3school to help whit some of the pyhon code functions etc. 
-- Youtube
-
+- [Code Insitutes](https://codeinstitute.net/se/full-stack-software-development-diploma/) course material to help whit deployment and how to write python code. 
+- [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game)) for the details of the Battleship game. 
+- [W3schools Python Tutorial](https://www.w3schools.com/python/default.asp) to remind me of how to write some of the code. 
+- This [Youtube video](https://www.youtube.com/watch?v=nLRL_NcnK-4&t=20326s&ab_channel=freeCodeCamp.org) from Harvard CS50's introduction for programming with Python.
