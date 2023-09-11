@@ -12,6 +12,8 @@ Welcome to Battleship Game, a simple and entertaining implementation of the clas
 
 Play the game, challenge your skill and see if you can destroy all the ships before your ammo runs out!
 
+[Here is the live link to the battleship game](https://battleship-game-p-ea20cc718143.herokuapp.com/)
+
 ![Screenshot of the game on diffrent screen sizes](https://user-images.githubusercontent.com/129947589/265952135-0745c6be-a67e-4e76-ad29-151b1eedcf0f.png)
 
 ## How to play
@@ -136,3 +138,5 @@ This project was deployed using Code Institute's mock terminal for Heroku.
 - [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game)) for the details of the Battleship game. 
 - [W3schools Python Tutorial](https://www.w3schools.com/python/default.asp) to remind me of how to write some of the code. 
 - This [Youtube video](https://www.youtube.com/watch?v=nLRL_NcnK-4&t=20326s&ab_channel=freeCodeCamp.org) from Harvard CS50's introduction for programming with Python.
+- I used [Flake8 Rules](https://www.flake8rules.com/rules/E302.html) to see what the problem messages given in the terminal means.
+- Used [Real Python](https://realpython.com/tutorials/projects/page/1/) in the process of deciding what to do for this project. 
